@@ -146,7 +146,11 @@ class UptimeRobot
             throw new Exception('Property not set: apiKey', 2);
         }
 
-        $req_url =  "{$this->base_uri}/newMonitor?apiKey={$this->apiKey}&monitorFriendlyName=$friendlyname&monitorURL=$url&monitorType=$type";
+        $req_url =  "{$this->base_uri}/newMonitor?apiKey={$this->apiKey}";
+
+        $req_url .= "&monitorFriendlyName=" . urlencode($friendlyname);
+        $req_url .= "&monitorURL=$url";
+        $req_url .= "&monitorType=$type";
 
         if (isset($subtype)) $req_url .= "&monitorSubType=$subtype";
         if (isset($port)) $req_url .= "&monitorPort=$port";
