@@ -237,7 +237,7 @@ class UptimeRobot
     * Gets all the contacts on the account
     */
     public function getAlertContacts() {
-        $url = "{$this->base_uri}/getAlertContacts?apiKey={$this->apiKey}&monitorID=$monitorId";
+        $url = "{$this->base_uri}/getAlertContacts?apiKey={$this->apiKey}";
         $url = $this->appendFormatToUrl($url);
         return $this->__fetch($url);
     }
